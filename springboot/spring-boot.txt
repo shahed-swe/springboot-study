@@ -1,0 +1,43 @@
+things will be learned
+what is spring boot?
+features and advantages
+building rest api's
+unit testing (junit, mockito)
+
+what is JPA
+usiing spring data JPA
+hibernate
+entity relationships
+
+implementing spring security
+oauth 2.0 and openID connect
+complete login flow
+
+
+prerequisite
+JAVA
+Basics of servlet
+enthusiasm to learn
+
+software requirements
+java 11
+maven 3+
+intelliJ idea or any other IDE 
+mysql server and workbench
+
+
+inversion of control
+-> give the control to a framework itself
+
+dependency injection
+-> give the dependencies of classes to another classes
+
+spring AOP-> aspect oriented programming
+-> 
+
+
+singleton
+prototype
+request
+session
+global session
