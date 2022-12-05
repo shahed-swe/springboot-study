@@ -1,29 +1,30 @@
 package com.springbootwork.demo.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long departmentId;
+
+    @NotBlank(message = "Please enter department name")
     private String departmentName;
     private String departmentAddress;
     private String departmentCode;
 
-    public Department(){
 
-    }
-
-    public Department(Long departmentId, String departmentName, String departmentAddress, String departmentCode) {
-        this.departmentId = departmentId;
-        this.departmentName = departmentName;
-        this.departmentAddress = departmentAddress;
-        this.departmentCode = departmentCode;
-    }
 
     public Long getDepartmentId() {
         return departmentId;

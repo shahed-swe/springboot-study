@@ -7,6 +7,7 @@ import com.springbootwork.demo.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -16,7 +17,7 @@ public class DepartmentController {
     private DepartmentService departmentService;
 
     @PostMapping("/departmentssave")
-    public Department saveDepartment(@RequestBody Department department){
+    public Department saveDepartment(@Valid @RequestBody Department department){
         return departmentService.saveDepartment(department);
     }
 
@@ -35,6 +36,17 @@ public class DepartmentController {
     public String deleteDepartmentById(@PathVariable("id") Long departmentId){
         departmentService.deleteDepartmentById(departmentId);
         return "Department deleted Successfully";
+    }
+
+    @PutMapping("/department/{id}")
+    public Department updateDepartmentById(@PathVariable("id") Long departmentId, @RequestBody Department department){
+        return departmentService.updateDepartmentById(departmentId, department);
+    }
+
+
+    @GetMapping("department/name/{name}")
+    public Department getDepartmentByName(@PathVariable("name") String departmentName){
+        return departmentService.getDepartmentByName(departmentName);
     }
 
 }
