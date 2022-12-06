@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
 //    @RequestMapping(value="/", method = RequestMethod.GET) -> vast thing
+
     @GetMapping("/") //simple thing
     public String helloworld(){
         return "Welcome to New Page New Change";
