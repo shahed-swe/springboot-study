@@ -37,6 +37,14 @@ spring:
 welcome:
   message: Application is running properly right now prod!
 
+management:
+  endpoints:
+    web:
+      exposure:
+#        include: "*"
+        include: "features"
+        exclude: "env,beans"
+
 
 ---
 
