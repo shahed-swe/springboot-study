@@ -1,0 +1,40 @@
+------------------------Pre Process----------------------------------------
+spring web
+spring boot devtools -> need to enable automake build in intelij
+lombok
+mysql driver / postgresql driver / mongodb driver
+spring data jpa
+
+
+<packaging>jar(for test deployment)/war(for deploy in tomcat)</packaging>
+
+
+
+---------------------Post Process------------------------------------------
+Five Mandatory Layes
+----------
+Repository Layer (Query Layer -> where every query is written directly or indirectly or pre-defined)
+Service Layer(An Interface layer where we only define methods to implement in controller)
+Implementation Layer(Full Implementation of methods written in service layer)
+Entity Layer(Database Design Layer)
+Controller Layer(Writing endpoints , Give / Get Response from client level)
+
+
+------------------Deployment----------------------------------------------
+We can deploy in both format like directly using jar or as a webapp using war file
+------------Jar Deploy----------------
+nohup sudo PORT=8080 java -jar <file name>.jar >> nohup.out</dev/null &
+
+-----------war deploy-----------------
+sudo apt-get install tomcat9 tomcat9-admin
+sudo apt-get install default-jdk
+cd <project directtory>
+change packaging from jar to war
+<packaging>war</packaging>
+mvn clean install
+sudo rm -rf <filename> && sudo rm -rf <filename>.war --> if needed
+sudo cp target/<filename>.war /var/lib/tomcat9/webapps/<filename>.war
+sudo service tomcat9 restart
+
+
+
