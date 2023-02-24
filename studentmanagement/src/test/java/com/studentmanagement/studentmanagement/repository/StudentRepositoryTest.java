@@ -5,12 +5,9 @@ import com.studentmanagement.studentmanagement.entity.Student;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 //@DataJpaTest
@@ -53,6 +50,23 @@ class StudentRepositoryTest {
                 .build();
 
         studentRepository.save(student);
+
+        Guardian guardian2 = Guardian.builder()
+                .name("ATM")
+                .email("atm1@gmail.com")
+                .mobile("01710952384")
+                .build();
+
+
+
+        Student student2 = Student.builder()
+                .firstName("Ashik2")
+                .lastName("Miah")
+                .emailId("ashik2@gmail.com")
+                .guardian(guardian2)
+                .build();
+
+        studentRepository.save(student2);
     }
 
     @Test
@@ -97,5 +111,41 @@ class StudentRepositoryTest {
     public void findStudentByEmailId(){
         Student student = studentRepository.getStudentByEmailAddress("shahedtalukder522@gmail.com");
         System.out.println(student+"----find by email address");
+    }
+
+    @Test
+    @DisplayName("Get Student First Name")
+    public void findStudentFirstName(){
+        String firstname = studentRepository.getFirstNameByEmailAddress("shahedtalukder522@gmail.com");
+        System.out.println(firstname+"------------student first name");
+    }
+
+    @Test
+    @DisplayName("Get Student by Guardian Email and Student Email")
+    public void findStudentByGuardianEmailAndEmailId(){
+        Student student = studentRepository.findByGuardianEmailAndStudentEmail("atm1@gmail.com", "shahedtalukder522@gmail.com");
+        System.out.println(student+"student with details");
+    }
+
+
+    @Test
+    @DisplayName("Native Query for getting Student Details")
+    public void findStudentByEmailNative(){
+        Student student = studentRepository.getStudentByEmailAddressNative("ashik@gmail.com");
+        System.out.println(student+"---------student for native query");
+    }
+
+    @Test
+    @DisplayName("Native Query for getting Student Details")
+    public void findStudentByEmailNativeNamedParam(){
+        Student student = studentRepository.getStudentByEmailAddressNativeNamedParam("ashik@gmail.com");
+        System.out.println(student+"---------student for native query");
+    }
+
+    @Test
+    @DisplayName("Update First Name using email address")
+    public void updateFirstnameUsingEmail(){
+        int student = studentRepository.UpdateStudentnameByEmailid("Shahed","ashik@gmail.com");
+        System.out.println(student+"---student updated successfully");
     }
 }
