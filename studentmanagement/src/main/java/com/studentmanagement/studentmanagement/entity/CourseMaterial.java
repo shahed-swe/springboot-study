@@ -11,7 +11,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-//@ToString(exclude = "course")
+@ToString(exclude = "course")
 public class CourseMaterial {
 
     @Id
@@ -29,7 +29,7 @@ public class CourseMaterial {
 
     @OneToOne(
             cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER // another type is LAZY
+            fetch = FetchType.LAZY // another type is EAGER
     )
     @JoinColumn(
             name="course_id",
