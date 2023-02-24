@@ -81,7 +81,6 @@ class StudentRepositoryTest {
     @DisplayName("Find by last name not null")
     public void findByLastNameNotNull(){
         List<Student> studentList = studentRepository.findByLastNameNotNull();
-
     }
 
     @Test
@@ -89,5 +88,14 @@ class StudentRepositoryTest {
     public void findByGuardianName(){
         List<Student> studentList = studentRepository.findByGuardianNameIgnoreCaseContaining("atm");
         System.out.println("by guardian name"+studentList);
+    }
+
+
+//    this test case is written with jpql query
+    @Test
+    @DisplayName("Find by email address")
+    public void findStudentByEmailId(){
+        Student student = studentRepository.getStudentByEmailAddress("shahedtalukder522@gmail.com");
+        System.out.println(student+"----find by email address");
     }
 }
