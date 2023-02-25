@@ -15,20 +15,20 @@ class StudentRepositoryTest {
     @Autowired
     private StudentRepository  studentRepository;
 
-    @Test
-    @DisplayName("Student Object Save")
-    public void saveStudent(){
-        Student student = Student.builder()
-                .emailId("shahedtalukder522@gmail.com")
-                .firstName("Shahed")
-                .lastName("Talukder")
-//                .guardianName("Shah Alam Talukder")
-//                .guardianEmail("shahalam.tghs@gmail.com")
-//                .guardianMobile("01725156222")
-                .build();
-
-        studentRepository.save(student);
-    }
+//    @Test
+//    @DisplayName("Student Object Save")
+//    public void saveStudent(){
+//        Student student = Student.builder()
+//                .emailId("shahedtalukder522@gmail.com")
+//                .firstName("Shahed")
+//                .lastName("Talukder")
+////                .guardianName("Shah Alam Talukder")
+////                .guardianEmail("shahalam.tghs@gmail.com")
+////                .guardianMobile("01725156222")
+//                .build();
+//
+//        studentRepository.save(student);
+//    }
 
     @Test
     @DisplayName("Store Student with guardian name")
