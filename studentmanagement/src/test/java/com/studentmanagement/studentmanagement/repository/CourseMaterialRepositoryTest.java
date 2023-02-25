@@ -22,8 +22,8 @@ class CourseMaterialRepositoryTest {
     @DisplayName("Save course material using course")
     public void saveCourseMaterial(){
         Course course = Course.builder()
-                .CourseTitle("SWE-413")
-                .Credit(5)
+                .courseTitle("SWE-413")
+                .credit(5)
                 .build();
 
         CourseMaterial courseMaterial = CourseMaterial.builder()

@@ -26,9 +26,9 @@ public class Course {
             strategy = GenerationType.SEQUENCE,
             generator = "course_sequence"
     )
-    private Long CourseId;
-    private String CourseTitle;
-    private Integer Credit;
+    private Long courseId;
+    private String courseTitle;
+    private Integer credit;
 
 
     @OneToOne(

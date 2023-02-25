@@ -2,6 +2,7 @@ package com.studentmanagement.studentmanagement.repository;
 
 import com.studentmanagement.studentmanagement.entity.Course;
 import com.studentmanagement.studentmanagement.entity.Teacher;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,20 +18,21 @@ class TeacherRepositoryTest {
     private TeacherRepository teacherRepository;
 
     @Test
+    @DisplayName("Save Teacher with course integrated")
     public void saveTeacher(){
         Course courseEng = Course.builder()
-                .CourseTitle("English")
-                .Credit(3)
+                .courseTitle("English")
+                .credit(3)
                 .build();
 
         Course courseBan = Course.builder()
-                .CourseTitle("Bangla")
-                .Credit(3)
+                .courseTitle("Bangla")
+                .credit(3)
                 .build();
 
         Course courseIslam = Course.builder()
-                .CourseTitle("Islam")
-                .Credit(3)
+                .courseTitle("Islam")
+                .credit(3)
                 .build();
 
         Teacher teacher = Teacher.builder()
