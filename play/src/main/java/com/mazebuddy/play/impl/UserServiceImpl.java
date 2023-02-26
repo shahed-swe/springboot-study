@@ -59,4 +59,9 @@ public class UserServiceImpl implements UserService {
             return "valid";
         }
     }
+
+    @Override
+    public User sendTokenAgain(String email) {
+        return userRepository.findByEmail(email);
+    }
 }

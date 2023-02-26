@@ -13,6 +13,12 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(
+        uniqueConstraints = @UniqueConstraint(
+                name="email_unique",
+                columnNames = "email"
+        )
+)
 public class User {
 
     @Id
@@ -28,6 +34,7 @@ public class User {
     private Long Id;
     private String firstName;
     private String lastName;
+    @Column
     private String email;
 
     @Column(length = 60)

@@ -23,7 +23,6 @@ public class RegistrationController {
     @PostMapping("/registerUser")
     public User registerUser(@RequestBody UserDto userDetails, final HttpServletRequest httpServletRequest){
         User user = userService.registerUser(userDetails);
-        System.out.println("user details are here = " + user);
         applicationEventPublisher.publishEvent(new RegistrationPublishEvent(
                 user,
                 applicationUrl(httpServletRequest)
@@ -41,6 +40,18 @@ public class RegistrationController {
             return "Token is not valid";
         }
     }
+
+    @PostMapping("/resendToken/{email}")
+    public String resendToken(@PathVariable String email, final HttpServletRequest httpServletRequest){
+        User user = userService.sendTokenAgain(email);
+        applicationEventPublisher.publishEvent(new RegistrationPublishEvent(
+                user,
+                applicationUrl(httpServletRequest)
+        ));
+        return "Token Sent Successfully";
+
+    }
+
     private String applicationUrl(HttpServletRequest httpServletRequest) {
         return "http://"+httpServletRequest.getServerName()+":"+httpServletRequest.getServerPort()+"/"+ httpServletRequest.getContextPath();
     }
