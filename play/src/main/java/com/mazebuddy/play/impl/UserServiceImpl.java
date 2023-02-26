@@ -56,6 +56,7 @@ public class UserServiceImpl implements UserService {
         }else{
             user.setActivated(true);
             userRepository.save(user);
+//            verificationTokenRepository.delete(verificationToken);
             return "valid";
         }
     }

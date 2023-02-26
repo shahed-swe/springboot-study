@@ -33,7 +33,6 @@ public class RegistrationController {
     @GetMapping("/verifyRegistration")
     public String verifyRegistration(@RequestParam("token") String token){
         String result = userService.validateVerification(token);
-        System.out.println("result = " + result);
         if(result.equalsIgnoreCase("valid")){
             return "User Activation Successfull";
         }else{
@@ -53,6 +52,6 @@ public class RegistrationController {
     }
 
     private String applicationUrl(HttpServletRequest httpServletRequest) {
-        return "http://"+httpServletRequest.getServerName()+":"+httpServletRequest.getServerPort()+"/"+ httpServletRequest.getContextPath();
+        return "http://"+httpServletRequest.getServerName()+":"+httpServletRequest.getServerPort()+"/auth/"+ httpServletRequest.getContextPath();
     }
 }

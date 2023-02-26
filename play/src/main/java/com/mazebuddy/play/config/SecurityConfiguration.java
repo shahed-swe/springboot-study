@@ -15,7 +15,9 @@ public class SecurityConfiguration {
     private static final String[] WHITE_LIST_URLS = {
             "/",
             "/swagger-ui",
-            "/registerUser"
+            "/registerUser",
+            "/verifyRegistration*",
+            "/resendToken*"
     };
 
     @Bean
