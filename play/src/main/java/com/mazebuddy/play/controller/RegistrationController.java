@@ -51,6 +51,11 @@ public class RegistrationController {
 
     }
 
+    @GetMapping("/resendVerifyToken")
+    public String resendVerifyToken(@RequestParam String token, final HttpServletRequest request){
+        return "Successfully Token Sent";
+    }
+
     private String applicationUrl(HttpServletRequest httpServletRequest) {
         return "http://"+httpServletRequest.getServerName()+":"+httpServletRequest.getServerPort()+"/auth/"+ httpServletRequest.getContextPath();
     }

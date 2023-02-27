@@ -1,0 +1,32 @@
+# for postgresql 8.3 install
+
+# for adding certificate
+sudo apt install curl ca-certificates gnupg
+# for getting version
+curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/apt.postgresql.org.gpg >/dev/null
+
+# for adding source
+cat "deb http://apt.postgresql.org/pub/repos/apt buster-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+
+# getting udpated package
+sudo apt-get update
+
+sudo apt-get install postgresql-8.3 postgresql-contrib-8.3
+
+
+# for installing java
+sudo apt-get install default-jdk
+# for setting up path variable
+export JAVA_HOME=$(update-java-alternatives -l | head -n 1 | awk -F ' ' '{print $NF}')
+
+
+# installing tomcat
+sudo apt-get install tomcat9 tomcat9-admin
+
+# downloading file of openbravo erp
+wget https://deac-fra.dl.sourceforge.net/project/openbravo/src/openbravo-release-21Q1.tar.bz2
+sudo chmod +x openbravo-release-21Q1
+sudo apt-get install bzip2
+tar -xvf *.tar.bz2
+cd openbravo-release-21Q1
+ant setup
